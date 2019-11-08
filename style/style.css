@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: auto minmax(auto, 1000px) auto;
+    grid-template-areas: ". grid .";
+}
+
+#grid {
+    grid-area: grid;
+    display: grid;
+    grid-template-rows: 8vh auto 3vh;
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
+    height: 100vh; 
+    width: 100%;
+    background-color: #e5e5e5;
+}
+
+#header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 20% auto 20%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas:
+        "leftmenu logo rightmenu"
+        "search logo cart";
+    background-color: #c9c9c9;
+        
+}
+
+#leftmenu {
+    grid-area: leftmenu;
+}
+
+#logo {
+    grid-area: logo;
+    background-image: url('../images/musikland-ohz_logo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+#rightmenu {
+    grid-area: rightmenu;
+}
+
+#search {
+    grid-area: search;
+    margin: 5px;
+}
+
+#search > input {
+    border-radius: 2em;
+    height: 100%;
+}
+
+#cart {
+    grid-area: cart;
+}
+
+#main {
+    grid-area: main;
+}
+
+#footer {
+    grid-area: footer;
+}
