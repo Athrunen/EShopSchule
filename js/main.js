@@ -25,18 +25,21 @@ window.App = new Vue({
     },
     methods: {
         filteredProducts: function (filters, products) {
-            var filters = this.filters
-            var products = this.products
             console.log(filters)
             if (filters.length == 0)
                 return products
             console.log(products)
-            var reduced = products.keys().reduce(function (accumulator, key) {
+            /*var reduced = products.keys().reduce(function (accumulator, key) {
                 accumulator[key] = key || {}
                 if (filters.includes(products[key].type))
                     accumulator[key].push(products[key])
                 return accumulator
-            })
+            })*/
+            var reduced = {}
+            Object.keys(products).forEach(key => {
+                if (filters.includes(products[key].type))
+                    reduced[key] = products[key]
+            });
             console.log(reduced)
             return reduced
         }
