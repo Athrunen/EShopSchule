@@ -16,7 +16,7 @@
             <div id="cart"></div>
         </div>
         <div id="main">
-          <div id="items" v-for="(product, index) in filteredProducts(filters, products)">
+          <div id="items" v-for="(product, index) in filteredProducts()">
             <p>{{product.name}}</p>
             <br/>
             <p>{{categories[product.type]}}</p>

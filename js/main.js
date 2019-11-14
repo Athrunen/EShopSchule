@@ -22,23 +22,16 @@ window.App = new Vue({
         filters: [],
         categories: {0: "gitarre", 1: "schlagzeug", 2: "tasteninstrumente"},
         selected: "",
+        search: "",
     },
     methods: {
-        filteredProducts: function (filters, products) {
-            console.log(filters)
-            if (filters.length == 0)
-                return products
-            console.log(products)
-            /*var reduced = products.keys().reduce(function (accumulator, key) {
-                accumulator[key] = key || {}
-                if (filters.includes(products[key].type))
-                    accumulator[key].push(products[key])
-                return accumulator
-            })*/
+        filteredProducts: function () {
+            if (this.filters.length == 0)
+                return this.products
             var reduced = {}
-            Object.keys(products).forEach(key => {
-                if (filters.includes(products[key].type))
-                    reduced[key] = products[key]
+            Object.keys(this.products).forEach(key => {
+                if (this.filters.includes(this.products[key].type) || (this.search != "" && this.products[key].name.includes(this.search)))
+                    reduced[key] = this.products[key]
             });
             console.log(reduced)
             return reduced
