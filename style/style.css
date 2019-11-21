@@ -16,7 +16,6 @@ body {
         "footer";
     height: 100vh; 
     width: 100%;
-    background-color: #e5e5e5;
 }
 
 #header {
@@ -65,10 +64,59 @@ body {
     grid-area: main;
 }
 
-.item {
-    margin: 5px;
-    background-color: #666666;
+#items:nth-last-child(n+2)::after{ 
+    display: block;
+    content: '';
+    width: 100%;
+    margin: 15px 0px;
+    height: 1px;
+    background: black;
+    bottom: 0;
+    left: 0;
 }
+
+.item {
+    height: 15vw;
+    display: grid;
+    grid-template-columns: 15vw auto 20vw;
+}
+
+.item-image {
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.item-info {
+    padding-left: 10px;
+    grid-template-rows: auto auto 1fr;
+}
+
+.item-title {
+    margin-bottom: 0;
+}
+
+.item-type {
+    margin-top: 0;
+    color: grey;
+    font-size: 0.8em;
+}
+
+.item-price {
+    display: grid;
+    grid-template-rows: 80% 20%;
+    align-items: flex-end;
+}
+
+.item-price > p {
+    margin-bottom: 1px;
+}
+
+.item-price > button {
+    height: 100%
+}
+
 
 #footer {
     grid-area: footer;
