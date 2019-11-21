@@ -65,6 +65,11 @@ body {
     grid-area: main;
 }
 
+.item {
+    margin: 5px;
+    background-color: #666666;
+}
+
 #footer {
     grid-area: footer;
 }
