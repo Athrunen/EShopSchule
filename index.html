@@ -37,11 +37,14 @@
                     </div>
                     <div class="item-price">
                       <p>{{product.price}} €</p>
-                      <input type="number" class="item-amount">
-                      <button type="submit" class="item-submit" v-on:click="">
+                      <input type="number" value=0 class="item-amount">
+                      <button type="submit" class="item-submit" v-on:click="changeCart($event, index, 'replace')">
                     </div>
                 </div>
               </div>
+          </div>
+          <div id="product">
+            
           </div>
         </div>
         <div id="footer"></div>

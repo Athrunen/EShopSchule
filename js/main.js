@@ -131,6 +131,32 @@ window.App = new Vue({
                     reduced[key] = this.products[key]
             })
             this.filtered = reduced
+        },
+        changeCart: function(event, id, mode="add") {
+            let amount = parseInt(event.target.previousElementSibling.value)
+            if (amount <= 0) {
+                return
+            }
+            let temp = []
+            let placed = false
+            this.cart.forEach(function(item, index, array) {
+                let currentid = Object.keys(item)[0]
+                if (currentid == id) {
+                    if (mode == "replace")
+                        temp[index] = {[id]: amount}
+                    if (mode == "substract" && item[currentid] - amount >= 1)
+                        temp[index] = {[id]: item[currentid] - amount}
+                    if (mode == "add")
+                        temp[index] = {[id]: item[currentid] + amount}
+                    placed = true
+                    return
+                }
+                temp[index] = item
+            });
+            if(!placed) {
+                temp.push({[id]: amount})
+            }
+            this.cart = temp
         }
     }
 })

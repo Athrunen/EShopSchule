@@ -159,6 +159,10 @@ body::-webkit-scrollbar {
     align-items: flex-end;
 }
 
+.item-price > * {
+    width: 100%;
+}
+
 .item-price > p {
     margin-bottom: 1px;
 }
