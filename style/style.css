@@ -78,16 +78,11 @@ body::-webkit-scrollbar {
 }
 
 #cart-grid {
-    display: grid;
-    grid-template-columns: 70% 30%;
-    justify-items: center;
-    align-items: center;
-}
-
-#cart-grid > p {
+    height: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-around;
+    flex-wrap: nowrap;
 }
   
 #cart-content {
