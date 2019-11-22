@@ -19,7 +19,9 @@
                   <p>{{cart.length}}</p>
               </div>
               <div id="cart-content">
-                <p>Hello World!</p>
+                <div v-if="cart.length" class="cart-item" v-for="cartitem in cart">
+                  <p>{{products[Object.keys(cartitem)[0]].name}}: {{cartitem[Object.keys(cartitem)[0]]}}</p>
+                </div>
               </div>
             </div>
         </div>
@@ -35,7 +37,8 @@
                     </div>
                     <div class="item-price">
                       <p>{{product.price}} €</p>
-                      <button type="submit"></button>
+                      <input type="number" class="item-amount">
+                      <button type="submit" class="item-submit" v-on:click="">
                     </div>
                 </div>
               </div>
@@ -44,7 +47,6 @@
         <div id="footer"></div>
     </div>
 </body>
-<script src="/lib/w3.js"></script>
 <script src="js/vue.js"></script>
 <script src="js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>

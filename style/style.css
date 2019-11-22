@@ -95,6 +95,7 @@ body::-webkit-scrollbar {
 
 #cart:hover #cart-content {
     display: grid;
+    min-height: 20vh;
 }
 
 #main {
@@ -151,6 +152,10 @@ body::-webkit-scrollbar {
 .item-price {
     display: grid;
     grid-template-rows: 80% 20%;
+    grid-template-columns: auto auto;
+    grid-template-areas: 
+    "price amount"
+    "button button";
     align-items: flex-end;
 }
 
@@ -160,6 +165,10 @@ body::-webkit-scrollbar {
 
 .item-price > button {
     height: 100%
+}
+
+.item-submit {
+    grid-area: button;
 }
 
 
