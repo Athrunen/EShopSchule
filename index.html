@@ -13,22 +13,32 @@
             <div id="search">
                 <input type="text" v-model="search" placeholder="Search...">
             </div>
-            <div id="cart"></div>
+            <div id="cart">
+              <div id="cart-grid">
+                  <p>Wahrenkorb</p>
+                  <p>{{cart.length}}</p>
+              </div>
+              <div id="cart-content">
+                <p>Hello World!</p>
+              </div>
+            </div>
         </div>
         <div id="main">
-          <div id="items" v-for="(product, index) in filtered">
-            <div class="item">
-                <div class="item-image" v-bind:style="{ 'background-image': 'url(' + product.image + ')' }"></div>
-                <div class="item-info">
-                  <h3 class="item-title">{{product.name}}</h3>
-                  <p class="item-type">{{categories[product.type].capitalize()}}</p>
-                  <p>{{product.desc}}</p>
+          <div id="items">
+              <div class="item-container" v-for="(product, index) in filtered">
+                <div class="item">
+                    <div class="item-image" v-bind:style="{ 'background-image': 'url(' + product.image + ')' }"></div>
+                    <div class="item-info">
+                      <h3 class="item-title">{{product.name}}</h3>
+                      <p class="item-type">{{categories[product.type].capitalize()}}</p>
+                      <p>{{product.desc}}</p>
+                    </div>
+                    <div class="item-price">
+                      <p>{{product.price}} €</p>
+                      <button type="submit"></button>
+                    </div>
                 </div>
-                <div class="item-price">
-                  <p>{{product.price}} €</p>
-                  <button type="submit"></button>
-                </div>
-            </div>
+              </div>
           </div>
         </div>
         <div id="footer"></div>

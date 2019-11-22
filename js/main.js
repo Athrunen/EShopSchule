@@ -13,6 +13,14 @@ window.App = new Vue({
                     image: "'images/Instrumente/Gitarren/Verstärker/Line6 Spider V 20 MkII.jpg'",
                     price: 0,
                     desc: "dkjdgsjhsdfhdsjbkljhf",
+                    long_desc: "",
+                    reviews: [
+                        {
+                            user: "Nen Name",
+                            text: "Hier könnte ihre Werbung stehen",
+                            sterne: 5,
+                        },
+                    ]
                 },
                 "ccd": {
                     name: "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
@@ -20,6 +28,14 @@ window.App = new Vue({
                     image: "'images/Instrumente/Gitarren/Verstärker/Line6 Spider V 30 MkII.jpg'",
                     price: 18.88,
                     desc: "lkldasklasklklaskla",
+                    long_desc: "",
+                    reviews: [
+                        {
+                            user: "Nen Name",
+                            text: "Hier könnte ihre Werbung stehen",
+                            sterne: 5,
+                        },
+                    ]
                 },
                 "cdd": {
                     name: "abb",
@@ -27,6 +43,14 @@ window.App = new Vue({
                     image: "'images/Instrumente/Gitarren/Verstärker/Line6 Spider V 120 MkII.jpg'",
                     price: 0,
                     desc: "qewuiqwzequwizeuqizweiuzwhbc",
+                    long_desc: "",
+                    reviews: [
+                        {
+                            user: "Nen Name",
+                            text: "Hier könnte ihre Werbung stehen",
+                            sterne: 5,
+                        },
+                    ]
                 },
                 "cda": {
                     name: "dbb",
@@ -34,6 +58,14 @@ window.App = new Vue({
                     image: "'images/Instrumente/Gitarren/Zubehör/Plektren/Harley Benton Nylon Player Pick Set Mixed.jpg'",
                     price: 0,
                     desc: "gftdretzdoizöovcö",
+                    long_desc: "",
+                    reviews: [
+                        {
+                            user: "Nen Name",
+                            text: "Hier könnte ihre Werbung stehen",
+                            sterne: 5,
+                        },
+                    ]
                 },
                 "ggh": {
                     name: "dbb",
@@ -41,6 +73,14 @@ window.App = new Vue({
                     image: "'images/Instrumente/Gitarren/Zubehör/Plektren/Harley Benton Nylon Player Pick Set Mixed.jpg'",
                     price: 0,
                     desc: "gftdretzdoizöovcö",
+                    long_desc: "",
+                    reviews: [
+                        {
+                            user: "Nen Name",
+                            text: "Hier könnte ihre Werbung stehen",
+                            sterne: 5,
+                        },
+                    ]
                 },
                 "dcs": {
                     name: "dbb",
@@ -48,6 +88,14 @@ window.App = new Vue({
                     image: "'images/Instrumente/Gitarren/Zubehör/Plektren/Harley Benton Nylon Player Pick Set Mixed.jpg'",
                     price: 0,
                     desc: "gftdretzdoizöovcö",
+                    long_desc: "",
+                    reviews: [
+                        {
+                            user: "Nen Name",
+                            text: "Hier könnte ihre Werbung stehen",
+                            sterne: 5,
+                        },
+                    ]
                 },
             },
             filters: [],
@@ -55,6 +103,7 @@ window.App = new Vue({
             categories: {0: "gitarre", 1: "schlagzeug", 2: "tasteninstrumente"},
             selected: "",
             search: "",
+            cart: [], // id: amount
         }
     },
     watch: {
@@ -67,6 +116,10 @@ window.App = new Vue({
     },
     created: function() {
         Object.assign(this.filtered, this.products)
+    },
+    mounted: function() {
+        let element = document.getElementById("items")
+        element.style.width = element.getBoundingClientRect().width
     },
     methods: {
         filteredProducts: function () {

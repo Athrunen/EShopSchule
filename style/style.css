@@ -4,6 +4,20 @@ body {
     display: grid;
     grid-template-columns: auto minmax(auto, 1000px) auto;
     grid-template-areas: ". grid .";
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: scroll;
+}
+
+@-moz-document url-prefix() { /* Disable scrollbar Firefox */
+    html {
+      scrollbar-width: none;
+    }
+}
+
+body::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* Disable scrollbar Chrome/Safari/Webkit */
 }
 
 #grid {
@@ -58,21 +72,57 @@ body {
 
 #cart {
     grid-area: cart;
+    background-color: blue;
+    position: relative;
+    display: inline-block;
+}
+
+#cart-grid {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    justify-items: center;
+    align-items: center;
+}
+
+#cart-grid > p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+#cart-content {
+    display: none;
+    position: absolute;
+    background-color: inherit;
+    width: 100%;
+    z-index: 1;
+}
+
+#cart:hover #cart-content {
+    display: grid;
 }
 
 #main {
     grid-area: main;
 }
 
-#items:nth-last-child(n+2)::after{ 
+#items {
+    margin: 50px 0px;
+}
+
+.item-container::after{ 
     display: block;
     content: '';
     width: 100%;
-    margin: 15px 0px;
+    margin: 20px 0px;
     height: 1px;
     background: black;
     bottom: 0;
     left: 0;
+}
+
+.item-container:last-child::after {
+    display: none;
 }
 
 .item {
