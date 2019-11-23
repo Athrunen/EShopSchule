@@ -11,14 +11,14 @@ window.App = new Vue({
                     name: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
                     type: 2,
                     image: "'images/Instrumente/Gitarren/Verstärker/Line6 Spider V 20 MkII.jpg'",
-                    price: 0,
+                    price: 20,
                     desc: "dkjdgsjhsdfhdsjbkljhf",
-                    long_desc: "",
+                    long_desc: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,",
                     reviews: [
                         {
                             user: "Nen Name",
                             text: "Hier könnte ihre Werbung stehen",
-                            sterne: 5,
+                            stars: 5,
                         },
                     ]
                 },
@@ -33,7 +33,7 @@ window.App = new Vue({
                         {
                             user: "Nen Name",
                             text: "Hier könnte ihre Werbung stehen",
-                            sterne: 5,
+                            stars: 5,
                         },
                     ]
                 },
@@ -41,14 +41,14 @@ window.App = new Vue({
                     name: "abb",
                     type: 0,
                     image: "'images/Instrumente/Gitarren/Verstärker/Line6 Spider V 120 MkII.jpg'",
-                    price: 0,
+                    price: 8,
                     desc: "qewuiqwzequwizeuqizweiuzwhbc",
                     long_desc: "",
                     reviews: [
                         {
                             user: "Nen Name",
                             text: "Hier könnte ihre Werbung stehen",
-                            sterne: 5,
+                            stars: 5,
                         },
                     ]
                 },
@@ -56,14 +56,14 @@ window.App = new Vue({
                     name: "dbb",
                     type: 0,
                     image: "'images/Instrumente/Gitarren/Zubehör/Plektren/Harley Benton Nylon Player Pick Set Mixed.jpg'",
-                    price: 0,
+                    price: 6,
                     desc: "gftdretzdoizöovcö",
                     long_desc: "",
                     reviews: [
                         {
                             user: "Nen Name",
                             text: "Hier könnte ihre Werbung stehen",
-                            sterne: 5,
+                            stars: 5,
                         },
                     ]
                 },
@@ -71,14 +71,14 @@ window.App = new Vue({
                     name: "dbb",
                     type: 0,
                     image: "'images/Instrumente/Gitarren/Zubehör/Plektren/Harley Benton Nylon Player Pick Set Mixed.jpg'",
-                    price: 0,
+                    price: 5,
                     desc: "gftdretzdoizöovcö",
                     long_desc: "",
                     reviews: [
                         {
                             user: "Nen Name",
                             text: "Hier könnte ihre Werbung stehen",
-                            sterne: 5,
+                            stars: 5,
                         },
                     ]
                 },
@@ -86,14 +86,14 @@ window.App = new Vue({
                     name: "dbb",
                     type: 0,
                     image: "'images/Instrumente/Gitarren/Zubehör/Plektren/Harley Benton Nylon Player Pick Set Mixed.jpg'",
-                    price: 0,
+                    price: 169,
                     desc: "gftdretzdoizöovcö",
                     long_desc: "",
                     reviews: [
                         {
                             user: "Nen Name",
                             text: "Hier könnte ihre Werbung stehen",
-                            sterne: 5,
+                            stars: 5,
                         },
                     ]
                 },
@@ -104,6 +104,11 @@ window.App = new Vue({
             selected: "",
             search: "",
             cart: [], // id: amount
+            checkout: false,
+            netto: 0,
+            mws: 0,
+            brutto: 0,
+            coupon: "",
         }
     },
     watch: {
@@ -112,7 +117,13 @@ window.App = new Vue({
         },
         filters: function () {
             this.filteredProducts()
-        }
+        },
+        cart: function() {
+            this.calculatePrice()
+        },
+        coupon: function() {
+            this.calculatePrice()
+        },
     },
     created: function() {
         Object.assign(this.filtered, this.products)
@@ -132,8 +143,11 @@ window.App = new Vue({
             })
             this.filtered = reduced
         },
-        changeCart: function(event, id, mode="add") {
+        changeCart: function(event, id, mode="add", pos) {
             let amount = parseInt(event.target.previousElementSibling.value)
+            if (pos) {
+                amount = document.getElementById(pos).value
+            }
             if (amount <= 0) {
                 return
             }
@@ -152,11 +166,38 @@ window.App = new Vue({
                     return
                 }
                 temp[index] = item
-            });
+            })
             if(!placed) {
                 temp.push({[id]: amount})
             }
             this.cart = temp
+        },
+        calculatePrice: function() {
+            let prod = {}
+            Object.assign(prod, this.products)
+            let modifier = 1
+            if (this.coupon == "lol")
+                modifier = 0.95
+            let brutto = 0
+            this.cart.forEach(function(item, index, array) {
+                let currentid = Object.keys(item)[0]
+                brutto += item[currentid] * prod[currentid].price
+            })
+
+            let old_brutto = brutto
+
+            brutto = (brutto * modifier)
+
+            let cpr = old_brutto - brutto
+
+            let netto = (brutto / 1.19)
+
+            let mws = (brutto - netto)
+
+            this.brutto = brutto.toFixed(2)
+            this.netto = netto.toFixed(2)
+            this.mws = mws.toFixed(2)
+            this.coupon_result = cpr.toFixed(2)
         }
     }
 })

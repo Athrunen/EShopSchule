@@ -9,6 +9,10 @@ body {
     overflow-y: scroll;
 }
 
+p {
+    margin: 0px;
+}
+
 @-moz-document url-prefix() { /* Disable scrollbar Firefox */
     html {
       scrollbar-width: none;
@@ -35,18 +39,13 @@ body::-webkit-scrollbar {
 #header {
     grid-area: header;
     display: grid;
-    grid-template-columns: 20% auto 20%;
-    grid-template-rows: 50% 50%;
+    grid-template-columns: 30% auto 30%;
     grid-template-areas:
-        "leftmenu logo rightmenu"
         "search logo cart";
     background-color: #c9c9c9;
         
 }
 
-#leftmenu {
-    grid-area: leftmenu;
-}
 
 #logo {
     grid-area: logo;
@@ -56,13 +55,14 @@ body::-webkit-scrollbar {
     background-position: center;
 }
 
-#rightmenu {
-    grid-area: rightmenu;
-}
 
 #search {
     grid-area: search;
     margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
 }
 
 #search > input {
@@ -72,7 +72,6 @@ body::-webkit-scrollbar {
 
 #cart {
     grid-area: cart;
-    background-color: blue;
     position: relative;
     display: inline-block;
 }
@@ -88,7 +87,7 @@ body::-webkit-scrollbar {
 #cart-content {
     display: none;
     position: absolute;
-    background-color: inherit;
+    background-color: white;
     width: 100%;
     z-index: 1;
 }
@@ -96,6 +95,13 @@ body::-webkit-scrollbar {
 #cart:hover #cart-content {
     display: grid;
     min-height: 20vh;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: nowrap;
 }
 
 #main {
@@ -122,12 +128,12 @@ body::-webkit-scrollbar {
 }
 
 .item {
-    height: 15vw;
+    height: 10vw;
     display: grid;
     grid-template-columns: 15vw auto 20vw;
 }
 
-.item-image {
+.item-image, #product-image {
     background-color: white;
     background-repeat: no-repeat;
     background-position: center;
@@ -141,12 +147,17 @@ body::-webkit-scrollbar {
 
 .item-title {
     margin-bottom: 0;
+    display: inline-block;
 }
 
 .item-type {
     margin-top: 0;
     color: grey;
     font-size: 0.8em;
+}
+
+.item-desc {
+    margin-top: 16px;
 }
 
 .item-price {
@@ -175,7 +186,101 @@ body::-webkit-scrollbar {
     grid-area: button;
 }
 
+#product {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 10% 35% auto;  
+}
+
+#product-cart {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid black;
+}
+
+#product-cart > * {
+    min-width: 50%;
+}
+
+#product-image {
+    height: 80%;
+}
+
+#product-buy {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#product-quan > *{
+    margin: 10px 0px;
+}
+
+#product-submit {
+    height: 4vh;
+    width: 50%;
+}
+
+#product-additional {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+#product-additional > * {
+    min-width: 50%;
+    margin: 0px 20px;
+    text-align: justify;
+}
+
+.review-container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#checkout {
+    display: grid;
+    height: 100%;
+    grid-template-rows: 35% 35% 30%;
+}
+
+#checkout-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#checkout-header, .checkout-item {
+    display: grid;
+    word-break: break-all;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#checkout-money {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#checkout-money > p {
+    flex-basis: 50%;
+}
+
+#checkout-info {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
 
 #footer {
     grid-area: footer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: nowrap;
 }

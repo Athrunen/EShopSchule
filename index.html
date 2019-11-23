@@ -7,11 +7,9 @@
 <body>
     <div id="grid">
         <div id="header">
-            <div id="leftmenu"></div>
-            <div id="logo"><a href="./index.html" style="display: block; height:100%;"></a></div>
-            <div id="rightmenu"></div>
+            <div id="logo" @click="checkout = false; selected = ''; search = ''"></div>
             <div id="search">
-                <input type="text" v-model="search" placeholder="Search...">
+                <input type="text" v-model="search" @keyup.enter="checkout = false; selected = ''" placeholder="Search...">
             </div>
             <div id="cart">
               <div id="cart-grid">
@@ -20,34 +18,109 @@
               </div>
               <div id="cart-content">
                 <div v-if="cart.length" class="cart-item" v-for="cartitem in cart">
-                  <p>{{products[Object.keys(cartitem)[0]].name}}: {{cartitem[Object.keys(cartitem)[0]]}}</p>
+                  <p>{{products[Object.keys(cartitem)[0]].name}}</p>
+                  <p>{{cartitem[Object.keys(cartitem)[0]]}}</p>
                 </div>
+                <button id="cart-submit" type="submit" @click="checkout = true; selected = ''">Checkout</button>
               </div>
             </div>
         </div>
         <div id="main">
-          <div id="items">
+          <div id="items" v-if="selected == '' && !checkout">
               <div class="item-container" v-for="(product, index) in filtered">
                 <div class="item">
-                    <div class="item-image" v-bind:style="{ 'background-image': 'url(' + product.image + ')' }"></div>
+                    <div class="item-image" v-bind:style="{ 'background-image': 'url(' + product.image + ')' }" @click="selected = index"></div>
                     <div class="item-info">
-                      <h3 class="item-title">{{product.name}}</h3>
+                      <h3 class="item-title" @click="selected = index">{{product.name}}</h3>
                       <p class="item-type">{{categories[product.type].capitalize()}}</p>
-                      <p>{{product.desc}}</p>
+                      <p class="item-desc">{{product.desc}}</p>
                     </div>
                     <div class="item-price">
                       <p>{{product.price}} €</p>
-                      <input type="number" value=0 class="item-amount">
-                      <button type="submit" class="item-submit" v-on:click="changeCart($event, index, 'replace')">
+                      <input type="number" value=1 class="item-amount">
+                      <button type="submit" class="item-submit" @click="changeCart($event, index, 'add')">Zum Warenkorb hinzufügen</button>
                     </div>
                 </div>
               </div>
           </div>
-          <div id="product">
-            
+          <div id="product" v-if="selected != '' && !checkout">
+            <div id="product-header">
+              <p id="product-type">{{categories[products[selected].type].capitalize()}}</p>
+              <h1 id="product-name">{{products[selected].name}}</p>
+            </div>
+            <div id="product-cart">
+              <div id="product-image" v-bind:style="{ 'background-image': 'url(' + products[selected].image + ')' }"></div>
+              <div id="product-buy">
+                <div id="product-quan">
+                  <p id="product-price">{{products[selected].price}} €</p>
+                  <input id="product-amount" type="number" value=1>
+                </div>  
+                <button id="product-submit" type="submit" v-on:click="changeCart($event, selected, 'add', 'product-amount')">Zum Warenkorb hinzufügen</button>
+              </div>
+            </div>
+            <div id="product-additional">
+              <div id="product-info">
+                  <h2>Produktinfo</h3>
+                  <p id="product-desc">{{products[selected].desc}}</p>
+                  <br>
+                  <p id="product-desc">{{products[selected].long_desc}}</p>
+                </div>
+              <div id="product-reviews">
+                <h2>Reviews</h2>
+                  <div class="review-container" v-if="'reviews' in products[selected]" v-for="review in products[selected].reviews">
+                    <div id="review-head">
+                      <p class="review-user">{{review.user}}</p>
+                      <p class="review-stars">{{review.stars}}/5 Sternen</p>
+                    </div>
+                    <p class="review-text">{{review.text}}</p>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div id="checkout" v-if="checkout">
+            <div id="checkout-content">
+              <div id="checkout-header">
+                  <p>Name</p>
+                  <p>Preis</p>
+                  <p>Anzahl</p>
+                  <p>Gesamtpreis</p>
+              </div>
+              <div class="checkout-item" v-if="cart.length" v-for="cartitem in cart">
+                <p>{{products[Object.keys(cartitem)[0]].name}}</p>
+                <p>{{products[Object.keys(cartitem)[0]].price}} €</p>
+                <p>{{cartitem[Object.keys(cartitem)[0]]}}</p>
+                <p>{{products[Object.keys(cartitem)[0]].price * cartitem[Object.keys(cartitem)[0]]}} €</p>
+              </div>
+            </div>
+            <div id="checkout-info">
+              <input id="checkout-coupon" type="text" v-model="coupon" placeholder="Coupon">
+              <div id="checkout-money">
+                <p id="checkout-netto">{{netto}} €</p>
+                <p class="wrap-after">Netto</p>
+                <p id="checkout-coupon-result">- {{coupon_result}} €</p>
+                <p class="wrap-after">Rabatt</p>
+                <p id="checkout-mws">+ {{mws}} €</p>
+                <p class="wrap-after">Mehrwertsteuer 19%</p>
+                <p id="checkout-brutto">{{brutto}} €</p>
+                <p class="wrap-after">Brutto</p>
+              </div>
+            </div>
+            <div id="checkout-data">
+              <input id="checkout-name" type="text">
+              <input id="checkout-address" type="text">
+              <input id="checkout-plz" type="text">
+              <input id="checkout-ort" type="text">
+              <input id="checkout-agb" type="checkbox">
+              <input id="checkout-ds" type="checkbox">
+              <button id="checkout-submit" type="submit">
+            </div>
           </div>
         </div>
-        <div id="footer"></div>
+        <div id="footer">
+            <a href="pdf/Musicland_OHZ_Impressum.pdf">Impressum</a>
+            <a href="pdf/Musicland_OHZ_AGB.pdf">AGB</a>
+            <a href="pdf/Datenschutzerklarung2018_MusiclandOHZ.pdf">DSE</a>
+        </div>
     </div>
 </body>
 <script src="js/vue.js"></script>
