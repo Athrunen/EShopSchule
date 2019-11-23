@@ -119,9 +119,6 @@ window.App = new Vue({
         filters: function () {
             this.filteredProducts()
         },
-        cart: function() {
-            this.calculatePrice()
-        },
         coupon: function() {
             this.calculatePrice()
         },
@@ -200,6 +197,18 @@ window.App = new Vue({
             this.netto = netto.toFixed(2)
             this.mws = mws.toFixed(2)
             this.coupon_result = cpr.toFixed(2)
+        },
+        updateCart: function() {
+            let temp = []
+            this.cart.forEach(function(item, index, array) {
+                let currentid = Object.keys(item)[0]
+                if (item[currentid] > 0) 
+                    temp[index] = item
+            })
+
+            this.cart = temp
+
+            this.calculatePrice();
         }
     }
 })
