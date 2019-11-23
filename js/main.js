@@ -8,12 +8,27 @@ window.App = new Vue({
         return {
             products: {
                 "ccc": {
-                    name: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                    type: 2,
+                    name: "Line6 Spider V 20 MkII",
+                    type: 3,
                     image: "'images/Instrumente/Gitarren/Verstärker/Line6 Spider V 20 MkII.jpg'",
-                    price: 20,
-                    desc: "dkjdgsjhsdfhdsjbkljhf",
-                    long_desc: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,",
+                    price: 119,
+                    desc: "Modelling Combo für E-Gitarre",
+                    long_desc: `
+                    Leistung: 20 Watt
+                    Bestückung: 1x 8" Lautsprecher
+                    16 Sound-Presets, die mit Spider V Remote editiert werden können
+                    3 simultan nutzbare Effekte und ein Halleffekt
+                    über 200 Verstärker, Boxen und Effekte, die mit Spider V Remote angewählt werden können
+                    es stehen auch Sounds für A-Gitarre und Bass zur Verfügung
+                    frequenzkorrigierter Kopfhörer-Ausgang - auch als DI-Out verwendbar
+                    intuitive Bedienerführung
+                    interner Tuner
+                    Tap Tempo-Funktion
+                    Mikro-USB-Port
+                    kostenlose Spider V Remote App
+                    verbessertes Design mit neuem Frontbespannungsstoff und Knöpfen
+                    Maße: ca. 20,32 x 38,74 x 36,20 cm                
+                    `,
                     reviews: [
                         {
                             user: "Nen Name",
@@ -23,12 +38,32 @@ window.App = new Vue({
                     ]
                 },
                 "ccd": {
-                    name: "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
-                    type: 1,
+                    name: "Line6 Spider V 30 MkII",
+                    type: 3,
                     image: "'images/Instrumente/Gitarren/Verstärker/Line6 Spider V 30 MkII.jpg'",
-                    price: 18.88,
-                    desc: "lkldasklasklklaskla",
-                    long_desc: "",
+                    price: 179,
+                    desc: "Modelling Combo für E-Gitarre",
+                    long_desc: `
+                    Leistung: 30 W
+                    Lautsprecherbestückung: 1x 8" Custom Fullrange & Hochtöner
+                    Classic Speaker' Mode für organischen Klang und natürliches Spielgefühl
+                    Amp-Presets, die von renommierten Sounddesignern (z.B. Dan Boul von 65 Amps) abgestimmt wurden
+                    neues Design und verbesserte Optik, neuer Frontbespannungsstoff und Knöpfe
+                    Artist- und Song-Presets von Bill Kelliher, Josh Smith, Devin Townsend, Dustin Kensrue, Jeff Loomis, Ola Englund, Fluff, Jeff Schroeder, Oz Noy, Vernon Reid
+                    Fullrange-Lautsprecher-Modus für Akustik-Gitarren und Jam-Track Wiedergabe
+                    über 200 Verstärker, Lautsprecherboxen und Effekte
+                    eingebaute Empfänger, die mit Relay Funksystemen funktionieren (60W-240W)
+                    kostenlose Spider V Remote-App (Mac, PC, iOS, Android) - kann über Line6 Updater kostenlos auf MkII Software aktualisiert werden
+                    Regler: Drive, Bass, Mid, Treble und Volume
+                    1 Instrumenteneingang: 6,3 mm Klinke
+                    1 Kopfhöreranschluss
+                    1 Stereo Aux Eingang
+                    eingebautes Stimmgerät, Schlagzeug Loops, Metronom
+                    USB Recording & Playback
+                    kompatibel mit Line6 FBV3 Art. 380135 & FBV MK II Fußschaltern Art. 231417 & Art. 231418 (Fußschalter nicht im Lieferumfang enthalten)
+                    Abmessungen: 208 x 391 x 381 mm
+                    Gewicht: 7,3 kg                
+                    `,
                     reviews: [
                         {
                             user: "Nen Name",
@@ -38,12 +73,39 @@ window.App = new Vue({
                     ]
                 },
                 "cdd": {
-                    name: "abb",
-                    type: 0,
+                    name: "Line6 Spider V 120 MkII",
+                    type: 3,
                     image: "'images/Instrumente/Gitarren/Verstärker/Line6 Spider V 120 MkII.jpg'",
-                    price: 8,
-                    desc: "qewuiqwzequwizeuqizweiuzwhbc",
-                    long_desc: "",
+                    price: 349,
+                    desc: "Modelling Combo",
+                    long_desc: `
+                    Leistung: 120 W
+                    Lautsprecherbestückung: 1x 12" Custom Fullrange Lautsprecher und Hochtöner
+                    Classic Speaker Mode für organischen Klang und natürliches Spielgefühl
+                    Amp-Presets, die von renommierten Sounddesignern (z.B. Dan Boul von 65 Amps) abgestimmt wurden
+                    Design und verbesserte Optik - neuer Frontbespannungsstoff und Knöpfe
+                    Fullrange-Lautsprecher-Modus für Akustik-Gitarren und Jam-Track Wiedergabe
+                    Artist- und Song-Presets von Bill Kelliher, Josh Smith, Devin Townsend, Dustin Kensrue, Jeff Loomis, Ola Englund, Fluff, Jeff Schroeder, Oz Noy, Vernon
+                    über 200 Verstärker, Lautsprecherboxen und Effekte
+                    eingebaute Empfänger, die mit Relay Funksystemen funktionieren (60 - 240 W)
+                    kostenlose Spider V Remote-App (Mac, PC, iOS, Android)
+                    kann über Line6 Updater kostenlos auf MkII Software aktualisiert werden
+                    Regler: Drive, Bass, Mid, Treble und Volume
+                    1 x 6,3 mm Instrumenteneingang
+                    1 x Kopfhörereingang
+                    1 x Stereo Aux Eingang
+                    200+ Amp Modelle
+                    128 Presets (inkl. Signature Setups & Sounds)
+                    eingebautes Stimmgerät
+                    Schlagzeug Loops
+                    Metronom
+                    USB Recording und Playback
+                    XLR DI Ausgang
+                    kompatibel mit Line6 FBV3 (Art. 380135) & FBV MK II Fußschaltern (Art. 231417 und Art. 231418)
+                    eingebauter Line6 Relay G10 Empfänger - Line6 Relay G10 Sender (Art. 398255) kann über den Instrumenteneingang des Verstärkers geladen werden) nicht im Lieferumfang enthalten
+                    Abmessungen: 271 x 510 x 490mm
+                    Gewicht: 14 kg
+                    `,
                     reviews: [
                         {
                             user: "Nen Name",
@@ -53,42 +115,16 @@ window.App = new Vue({
                     ]
                 },
                 "cda": {
-                    name: "dbb",
+                    name: "Harley Benton Nylon Player Pick Set Mixed",
                     type: 0,
                     image: "'images/Instrumente/Gitarren/Zubehör/Plektren/Harley Benton Nylon Player Pick Set Mixed.jpg'",
-                    price: 6,
-                    desc: "gftdretzdoizöovcö",
-                    long_desc: "",
-                    reviews: [
-                        {
-                            user: "Nen Name",
-                            text: "Hier könnte ihre Werbung stehen",
-                            stars: 5,
-                        },
-                    ]
-                },
-                "ggh": {
-                    name: "dbb",
-                    type: 0,
-                    image: "'images/Instrumente/Gitarren/Zubehör/Plektren/Harley Benton Nylon Player Pick Set Mixed.jpg'",
-                    price: 5,
-                    desc: "gftdretzdoizöovcö",
-                    long_desc: "",
-                    reviews: [
-                        {
-                            user: "Nen Name",
-                            text: "Hier könnte ihre Werbung stehen",
-                            stars: 5,
-                        },
-                    ]
-                },
-                "dcs": {
-                    name: "dbb",
-                    type: 0,
-                    image: "'images/Instrumente/Gitarren/Zubehör/Plektren/Harley Benton Nylon Player Pick Set Mixed.jpg'",
-                    price: 169,
-                    desc: "gftdretzdoizöovcö",
-                    long_desc: "",
+                    price: 2,
+                    desc: "Plectrum/Pick Set",
+                    long_desc: `
+                    mit 12 Stück
+                    Nylon
+                    Gemischte Stärken: je 2 Stück von 0,46 mm, 0,71 mm, 0,81 mm, 0,96 mm, 1,2 mm, 1,5 mm                
+                    `,
                     reviews: [
                         {
                             user: "Nen Name",
@@ -100,7 +136,7 @@ window.App = new Vue({
             },
             filters: [],
             filtered: {},
-            categories: {0: "gitarre", 1: "schlagzeug", 2: "tasteninstrumente"},
+            categories: {0: "gitarre", 1: "schlagzeug", 2: "tasteninstrumente", 3: "verstärker"},
             selected: "",
             search: "",
             cart: [], // id: amount

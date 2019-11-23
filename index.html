@@ -62,8 +62,11 @@
               <div id="product-info">
                   <h2>Produktinfo</h3>
                   <p id="product-desc">{{products[selected].desc}}</p>
-                  <br>
-                  <p id="product-desc">{{products[selected].long_desc}}</p>
+                  <div id="product-long-desc">
+                    <div class="product-long-container" v-for="line in products[selected].long_desc.trim().split('\n')">
+                      <p class="product-long-para">{{line.trim()}}</p>
+                    </div>
+                  </div>
                 </div>
               <div id="product-reviews">
                 <h2>Reviews</h2>

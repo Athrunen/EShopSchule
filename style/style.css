@@ -240,6 +240,22 @@ body::-webkit-scrollbar {
     border-right: 1px solid black;
 }
 
+#product-long-desc {
+    font-size: 0.85em;
+}
+
+#product-desc {
+    display: inline-block;
+    margin-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+.product-long-para {
+    margin: 5px 0px;
+    display: list-item;
+    list-style-image: url('../images/green-check.svg');
+}
+
 .review-container {
     display: flex;
     flex-wrap: nowrap;
@@ -317,4 +333,11 @@ body::-webkit-scrollbar {
     align-items: center;
     justify-content: space-around;
     flex-wrap: nowrap;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+#footer > * {
+    margin: 10px;
 }
