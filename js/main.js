@@ -146,7 +146,7 @@ window.App = new Vue({
         changeCart: function(event, id, mode="add", pos) {
             let amount = parseInt(event.target.previousElementSibling.value)
             if (pos) {
-                amount = document.getElementById(pos).value
+                amount = parseInt(document.getElementById(pos).value)
             }
             if (amount <= 0) {
                 return

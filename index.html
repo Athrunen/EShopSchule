@@ -13,7 +13,7 @@
             </div>
             <div id="cart">
               <div id="cart-grid">
-                  <p>Wahrenkorb</p>
+                  <p>Warenkorb</p>
                   <p>{{cart.length}}</p>
               </div>
               <div id="cart-content">
@@ -96,23 +96,29 @@
               <input id="checkout-coupon" type="text" v-model="coupon" placeholder="Coupon">
               <div id="checkout-money">
                 <p id="checkout-netto">{{netto}} €</p>
-                <p class="wrap-after">Netto</p>
+                <p>Netto</p>
                 <p id="checkout-coupon-result">- {{coupon_result}} €</p>
-                <p class="wrap-after">Rabatt</p>
+                <p>Rabatt</p>
                 <p id="checkout-mws">+ {{mws}} €</p>
-                <p class="wrap-after">Mehrwertsteuer 19%</p>
+                <p>Mehrwertsteuer 19%</p>
                 <p id="checkout-brutto">{{brutto}} €</p>
-                <p class="wrap-after">Brutto</p>
+                <p>Brutto</p>
               </div>
             </div>
             <div id="checkout-data">
+                <p>Name</p>
               <input id="checkout-name" type="text">
+              <p>Adresse</p>
               <input id="checkout-address" type="text">
+              <p>PLZ</p>
               <input id="checkout-plz" type="text">
+              <p>Ort</p>
               <input id="checkout-ort" type="text">
+              <p>Ich stimme den AGB zu.</p>
               <input id="checkout-agb" type="checkbox">
+              <p>Ich stimme der Nutzung meiner Daten zu.</p>
               <input id="checkout-ds" type="checkbox">
-              <button id="checkout-submit" type="submit">
+              <button id="checkout-submit" type="submit">Bestellen</button>
             </div>
           </div>
         </div>

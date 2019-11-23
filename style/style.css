@@ -245,19 +245,38 @@ body::-webkit-scrollbar {
 #checkout {
     display: grid;
     height: 100%;
-    grid-template-rows: 35% 35% 30%;
+    grid-template-rows: 35% 30% 25%;
 }
 
 #checkout-content {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    border-bottom: 1px solid black;
+}
+
+#checkout-header {
+    border-bottom: 1px solid grey;
+}
+
+#checkout-header > * {
+    padding: 10px 0px;
+    border-bottom: 1px solid grey;
 }
 
 #checkout-header, .checkout-item {
     display: grid;
     word-break: break-all;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: center;
+}
+
+#checkout-header > *, .checkout-item > * {
+    border-right: 2px solid gray;
+}
+
+#checkout-header > *:last-child, .checkout-item > *:last-child {
+    border-right: none;
 }
 
 #checkout-money {
@@ -274,7 +293,17 @@ body::-webkit-scrollbar {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
+}
+
+#checkout-data {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+#checkout-data > * {
+    flex-basis: 49%;
 }
 
 #footer {
