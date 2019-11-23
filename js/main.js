@@ -109,6 +109,7 @@ window.App = new Vue({
             mws: 0,
             brutto: 0,
             coupon: "",
+            coupon_result: 0,
         }
     },
     watch: {
@@ -131,6 +132,7 @@ window.App = new Vue({
     mounted: function() {
         let element = document.getElementById("items")
         element.style.width = element.getBoundingClientRect().width
+        this.calculatePrice()
     },
     methods: {
         filteredProducts: function () {
