@@ -8,26 +8,91 @@ window.App = new Vue({
         return {
             products: {
                 "ccc": {
-                    name: "Line6 Spider V 20 MkII",
-                    type: 3,
-                    image: "'images/Instrumente/Gitarren/Verstärker/Line6 Spider V 20 MkII.jpg'",
-                    price: 119,
-                    desc: "Modelling Combo für E-Gitarre",
+                    name: "Fender Squier Affinity Strat IRL BK",
+                    type: 0,
+                    image: "'images/Instrumente/Gitarren/E-Gitarren/Fender Squier Affinity Strat IRL BK.jpg'",
+                    price: 195,
+                    desc: "E-Gitarre",
                     long_desc: `
-                    Leistung: 20 Watt
-                    Bestückung: 1x 8" Lautsprecher
-                    16 Sound-Presets, die mit Spider V Remote editiert werden können
-                    3 simultan nutzbare Effekte und ein Halleffekt
-                    über 200 Verstärker, Boxen und Effekte, die mit Spider V Remote angewählt werden können
-                    es stehen auch Sounds für A-Gitarre und Bass zur Verfügung
-                    frequenzkorrigierter Kopfhörer-Ausgang - auch als DI-Out verwendbar
-                    intuitive Bedienerführung
-                    interner Tuner
-                    Tap Tempo-Funktion
-                    Mikro-USB-Port
-                    kostenlose Spider V Remote App
-                    verbessertes Design mit neuem Frontbespannungsstoff und Knöpfen
-                    Maße: ca. 20,32 x 38,74 x 36,20 cm                
+                    Korpus: Erle
+                    Hals: Ahorn
+                    Griffbrett: Indian Laurel
+                    21 Medium Jumbo Bünde
+                    Sattelbreite: 40,6 mm
+                    Mensur: 648 mm
+                    Tonabnehmer: 3 Standard Single Coils
+                    Vintage Type Tremolo
+                    Farbe: Schwarz                                
+                    `,
+                    reviews: [
+                        {
+                            user: "Nen Name",
+                            text: "Hier könnte ihre Werbung stehen",
+                            stars: 5,
+                        },
+                    ]
+                },
+                "cfg": {
+                    name: "Harley Benton ST-20HSS CA Standard Series",
+                    type: 0,
+                    image: "'images/Instrumente/Gitarren/E-Gitarren/Harley Benton ST-20HSS CA Standard Series.jpg'",
+                    price: 79,
+                    desc: "E-Gitarre",
+                    long_desc: `
+                    Korpus: Linde
+                    Hals: Ahorn
+                    Halsprofil: modern C
+                    Griffbrett: Roseacer
+                    Griffbrettradius: 350 mm
+                    DOT Griffbretteinlagen
+                    22 Bünde
+                    Mensur: 648 mm
+                    Sattelbreite: 42 mm
+                    Double-Action Halsstab
+                    Tonabnehmer: 1 Humbucker und 2 Single Coils
+                    1 Volumeregler und 2 Tonregler
+                    5-Weg-Schalter
+                    Chrom Hardware
+                    synchronisiertes Tremolo
+                    geschlossene Mechaniken
+                    Saitenstärke ab Werk: .009 - .042
+                    Farbe: Candy Apple Red
+                    passende Koffer: Art.: 122213 und Art. 136377 (beide nicht im Lieferumfang enthalten)                              
+                    `,
+                    reviews: [
+                        {
+                            user: "Nen Name",
+                            text: "Hier könnte ihre Werbung stehen",
+                            stars: 5,
+                        },
+                    ]
+                },
+                "cdm": {
+                    name: "PRS DGT Dragons Breath PS#7803",
+                    type: 0,
+                    image: "'images/Instrumente/Gitarren/E-Gitarren/PRS DGT Dragons Breath PS.jpg'",
+                    price: 10999,
+                    desc: "E-Gitarre",
+                    long_desc: `
+                    Private Stock Modell
+                    Sumpfeschenkorpus
+                    Wölkchenahorndecke
+                    gemaserter Mahagonihals
+                    Rio Palisander Griffbrett (Dalbergia nigra)
+                    Copper Leaf Birds und Eagle Griffbretteinlagen mit Perlmutt-Einfassungen
+                    Halsprofil: DGT
+                    Rio Palisander (Dalbergia nigra) Kopfplattenfurnier
+                    22 Bünde
+                    Tonabnehmer: DGT Bass und Treble Humbucker
+                    2 Volumeregler und Tonregler mit Push/Pull-Funktion
+                    PRS Phase III Tuner mit Rio Palisander Köpfen (Dalbergia nigra)
+                    Hybrid Hardware
+                    Gold/Nickel Gen III Tremolo
+                    Seriennummer: 19-271528
+                    Finish: High Gloss Nitro
+                    Farbe: Dragons Breath
+                    inkl. PRS Private Stock Lederkoffer und Zertifikat
+                    made in USA                              
                     `,
                     reviews: [
                         {
@@ -133,6 +198,27 @@ window.App = new Vue({
                         },
                     ]
                 },
+                "fff": {
+                    name: "the sssnake IPP1030 Klinkenkabel",
+                    type: 0,
+                    image: "'images/Instrumente/Gitarren/Zubehör/Klinkenkabel für Verstärker/the sssnake IPP1030 Klinkenkabel.jpg'",
+                    price: 2.5,
+                    desc: "Instrumentenkabel",
+                    long_desc: `
+                    Länge: 3 m
+                    6,3 mm Klinke < - > 6,3 mm Klinke
+                    0.22 mm² / AWG 24
+                    Außendurchmesser: 6,0 mm
+                    Farbe: Schwarz                             
+                    `,
+                    reviews: [
+                        {
+                            user: "Nen Name",
+                            text: "Hier könnte ihre Werbung stehen",
+                            stars: 5,
+                        },
+                    ]
+                },
             },
             filters: [],
             filtered: {},
@@ -173,7 +259,7 @@ window.App = new Vue({
                 return Object.assign(this.filtered, this.products)
             var reduced = {}
             Object.keys(this.products).forEach(key => {
-                if (this.filters.includes(this.products[key].type) || (this.search != "" && this.products[key].name.includes(this.search)))
+                if (this.filters.includes(this.products[key].type) || (this.search != "" && this.products[key].name.toLowerCase().includes(this.search.toLowerCase())))
                     reduced[key] = this.products[key]
             })
             this.filtered = reduced
